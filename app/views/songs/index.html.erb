@@ -1,0 +1,9 @@
+<h1>Song List</h1>
+<hr />
+<ol>
+  <% @songs.each do |song| %>
+    <li><%= song.name %></li>
+  <% end %>
+</ol>
+
+<%= link_to 'Back to Billboards', boards_path(@board) %>
