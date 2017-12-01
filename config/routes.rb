@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  root 'boards#index'
+  root 'boards#home'
   
   resources :boards do
     resources :songs

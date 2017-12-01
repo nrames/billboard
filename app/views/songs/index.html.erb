@@ -1,9 +1,39 @@
-<h1>Song List</h1>
-<hr />
-<ol>
-  <% @songs.each do |song| %>
-    <li><%= song.name %></li>
-  <% end %>
-</ol>
+<% @rank=0 %>
 
-<%= link_to 'Back to Billboards', boards_path(@board) %>
+<br />
+<div class="ui container">
+
+<h1 class="ui header center aligned"><%= @board.name %></h1>
+
+<div class="ui divider"></div>
+
+  <table class="ui celled padded table">
+    <thead>
+      <tr><th class="single line">Rank</th>
+      <th>Book</th>
+      <th>Author</th>
+    </tr></thead>
+    <tbody>
+      <% @songs.each do |song| %>
+      <% @rank += 1 %>
+      <tr>
+        <td>
+          <h2 class="ui center aligned header"><%= @rank %></h2>
+        </td>
+        <td class="single line">
+          <%= song.name %>
+        </td>
+        <td class="single line">
+          <%= song.artist.name %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <button class="ui button">
+    <%= link_to 'Back to bookboards', boards_path(@board) %>
+  </button>
+
+
+</div>  

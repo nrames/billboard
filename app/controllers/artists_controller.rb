@@ -1,13 +1,14 @@
 class ArtistsController < ApplicationController
-  def index
+  before_action :set_song, only: [:show]
+
+
+  private
+  def set_song  
+    @song = Song.find(params[:song_id])
   end
 
-  def show
-  end
+  def artist_params
+    params.require(:artist).permit(:name, :song_id)
+  end  
 
-  def new
-  end
-
-  def edit
-  end
 end
